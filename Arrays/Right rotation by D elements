@@ -1,0 +1,70 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class GFG {
+	public static void main (String[] args) {
+		//code
+		
+		//right ROTATION
+		
+		Scanner sc=new Scanner(System.in);
+		int t=sc.nextInt();//no of testcases
+		while(t>0)
+		{
+		    int n=sc.nextInt();//size of array
+		    int d=sc.nextInt();//number of rotations
+		    int a[]=new int[n];
+		    for(int i=0;i<n;i++)
+		        a[i]=sc.nextInt();
+		    rotate(a,n,d);
+		    t--;
+		    
+		    for(int m=0;m<n;m++)
+	        System.out.print(a[m] +" ");
+	    System.out.println();
+		}
+	}
+	
+    public static void rightrotate(int a[],int n)
+	{
+	    int l=a[n-1];
+	    for(int i=1;i<n;i++)
+        {
+            a[n-i]=a[n-i-1];//start from back
+        }
+        a[0]=l;
+        
+	}
+	
+	public static void rotate(int a[],int n,int d)
+	{
+	    /*int t[]=new int[d];
+	    for(int j=0;j<d;j++)
+	        t[j]=a[n-j-1];
+	    for(int k=d;k<n;k++)
+	        a[n-k]=a[n-k-1];
+	    for(int l=0;l<d;l++)
+	        a[l]=t[l];
+	    for(int m=0;m<n;m++)
+	        System.out.print(a[m] +" ");
+	    System.out.println();
+	    */
+	    
+	    for (int i = 0; i < d; i++)
+            rightrotate(a,n);
+	}
+}
+
+--------------------------------------------------------
+Input:
+2
+5 2
+1 2 3 4 5 
+10 3
+2 4 6 8 10 12 14 16 18 20
+
+Output:
+
+4 5 1 2 3 
+16 18 20 2 4 6 8 10 12 14 
