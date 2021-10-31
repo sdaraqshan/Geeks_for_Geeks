@@ -27,12 +27,11 @@ Constraints:
 -----------------------------------------------------------------------------------------------------------------
 
 class Solution {
-  public:
-    string revStr(string S) {
+    static String revStr(String S) {
         // code here
-        string rev="";
+         String rev="";
         for(int i=S.length()-1;i>=0;i--)
-            rev+=S[i];
+            rev+=S.charAt(i);
         return rev;
     }
-};
+}
