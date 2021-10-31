@@ -25,15 +25,14 @@ Constraints:
 ---------------------------------------------------------------------------------
 
 class Solution {
-  public:
-    string delAlternate(string S) {
+    static String delAlternate(String S) {
         // code here
-        string alt="";
+        String alt="";
         for(int i=0;i<S.length();i++)
         {
             if(i%2==0)
-                alt+=S[i];
+                alt+=S.charAt(i);
         }
         return alt;
     }
-};
+}
