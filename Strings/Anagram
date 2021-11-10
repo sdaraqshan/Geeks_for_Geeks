@@ -1,0 +1,89 @@
+Given two strings a and b consisting of lowercase characters. The task is to check whether two given strings are an anagram of each other or not. An anagram of a string is another string that contains the same characters, only the order of characters can be different. For example, “act” and “tac” are an anagram of each other.
+
+Example 1:
+
+Input:
+a = geeksforgeeks, b = forgeeksgeeks
+Output: YES
+Explanation: Both the string have same
+characters with same frequency. So, 
+both are anagrams.
+Example 2:
+
+Input:
+a = allergy, b = allergic
+Output: NO
+Explanation:Characters in both the strings
+are not same, so they are not anagrams.
+Your Task:
+You don't need to read input or print anything.Your task is to complete the function isAnagram() which takes the string a and string b as input parameter and check if the two strings are an anagram of each other. The function returns true if the strings are anagram else it returns false.
+
+Expected Time Complexity: O(|a|+|b|).
+Expected Auxiliary Space: O(Number of distinct characters).
+
+Note: |s| represents the length of string s.
+
+Constraints:
+1 ≤ |a|,|b| ≤ 105
+
+-------------------------------------------------------------------------------------------------
+
+
+class Solution
+{    
+    //Function is to check whether two strings are anagram of each other or not.
+    public static boolean isAnagram(String a,String b)
+    {
+        
+        // Your code here
+        
+        //sort,chk if both are same
+        
+        /*char[] ch = new char[a.length()];
+        char[] chb = new char[b.length()];    
+        // Copy character by character into array
+        for (int i = 0; i < a.length(); i++) 
+            ch[i] = a.charAt(i);
+        for (int j = 0; j < b.length(); j++) 
+            chb[j] = b.charAt(j);
+        for (int i = 0; i < a.length(); i++) 
+            Arrays.sort(ch);
+        for (int j = 0; j < b.length(); j++) 
+            Arrays.sort(chb);
+         if(ch==chb)
+            return true;
+        else
+            return false;
+         */   
+            
+        //0.5 time    
+         char[] tempArray1 = a.toCharArray();
+       char[] tempArray2 = b.toCharArray();
+       Arrays.sort(tempArray1);
+       Arrays.sort(tempArray2);
+       String s1 = new String(tempArray1);
+       String s2 = new String(tempArray2);
+       if(s1.equals(s2))
+           return true;
+       return false;    
+        
+        //Build frequency table from first word
+        //Subtract frequency of characters from second word
+        //Check whether every frequency in our table is equal to zero.
+        //0.3 time
+        
+        /*int[] freq = new int[26];
+       for(char c : a.toCharArray()) freq[c-'a']++;
+       for(char c : b.toCharArray()) freq[c-'a']--;
+       for(int f : freq) if(f != 0) return false;
+       return true;
+        */
+        
+        
+        //base case
+        //if(a.size()!=b.size())
+         //return 0;
+         
+         
+    }
+}
